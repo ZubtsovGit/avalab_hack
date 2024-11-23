@@ -1,16 +1,17 @@
 # app/ml/nlp.py
 import spacy
 import logging
-from simplification.cycle_gan import simplify
 
 nlp = spacy.load('ru_core_news_md')
 logger = logging.getLogger(__name__)
 
-def simplify_text(text):
+def preprocess_text(text):
+    # Простая обработка текста без упрощения
     try:
-        simplified_text = simplify(text)
-        logger.info("Текст успешно упрощен с помощью модели CycleGAN")
-        return simplified_text
+        doc = nlp(text)
+        processed_text = ' '.join([token.lemma_ for token in doc])
+        logger.info("Текст успешно обработан с помощью spaCy")
+        return processed_text
     except Exception as e:
-        logger.error("Ошибка при упрощении текста: %s", e)
+        logger.error("Ошибка при обработке текста: %s", e)
         return text  # Возврат оригинального текста в случае ошибки

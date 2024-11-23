@@ -7,7 +7,7 @@ from app.db.models.measure import Measure as MeasureModel
 from app.schemas.measure import Measure
 from app.api.routers.users import get_current_user
 from app.ml.recommendation import get_recommendations
-from app.ml.nlp import simplify_text
+from app.ml.nlp import preprocess_text
 
 router = APIRouter()
 
@@ -19,7 +19,7 @@ def read_measures(
 ):
     measures = db.query(MeasureModel).offset(skip).limit(limit).all()
     for measure in measures:
-        measure.simplified_description = simplify_text(measure.description)
+        measure.simplified_description = preprocess_text(measure.description)
     return measures
 
 @router.get("/recommendations", response_model=List[Measure])

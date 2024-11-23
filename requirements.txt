@@ -10,7 +10,6 @@ spacy
 scikit-learn
 mlflow
 prometheus-fastapi-instrumentator
-simplification
 bs4
 requests
 torch
