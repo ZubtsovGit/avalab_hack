@@ -21,7 +21,15 @@ jobs:
       run: |
         pip install -r requirements.txt
 
+    - name: Install SpaCy Model
+      run: python -m spacy download ru_core_news_md
+
+    - name: Install Simplification Model
+      run: python -m simplification download_model ru
+
     - name: Run Tests
+      env:
+        PYTHONPATH: .
       run: |
         pytest tests/
 

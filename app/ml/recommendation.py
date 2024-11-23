@@ -7,6 +7,7 @@ from sklearn.preprocessing import OneHotEncoder
 from sqlalchemy.orm import Session
 from app.db.models.measure import Measure
 from app.db.models.user import User
+import pandas as pd
 
 logger = logging.getLogger(__name__)
 MODEL_PATH = os.path.join(os.path.dirname(__file__), 'models', 'recommendation_model.pkl')

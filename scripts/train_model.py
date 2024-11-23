@@ -45,13 +45,10 @@ def train_recommendation_model():
         mlflow.log_metric("accuracy", accuracy)
         mlflow.sklearn.log_model(model, "model")
 
-    model_optimized = optimize_model(model)
-
-
     # Сохранение модели и кодировщика
     os.makedirs(MODEL_DIR, exist_ok=True)
     with open(os.path.join(MODEL_DIR, 'recommendation_model.pkl'), 'wb') as f:
-        pickle.dump(model_optimized, f)
+        pickle.dump(model, f)
     with open(os.path.join(MODEL_DIR, 'encoder.pkl'), 'wb') as f:
         pickle.dump(encoder, f)
 

@@ -17,3 +17,4 @@ torch
 onnx
 onnxruntime
 APScheduler
+pytest
