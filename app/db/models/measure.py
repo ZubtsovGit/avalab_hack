@@ -8,6 +8,7 @@ class Measure(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String(255), index=True)
     description = Column(Text)
+    simplified_description = Column(Text)  # Новое поле
     link = Column(String(255))
     region = Column(String(100))
     industry = Column(String(100))
