@@ -25,8 +25,9 @@ jobs:
       run: python -m spacy download ru_core_news_md
 
     - name: Install Simplification Model
-      run: python -m simplification download_model ru
-
+      run: |
+        python -c "from simplification.cycle_gan import download_model; download_model('ru')"
+        
     - name: Run Tests
       env:
         PYTHONPATH: .
