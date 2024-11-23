@@ -53,3 +53,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# ЧТОБЫ СКРИПТ РАБОТАЛ НУЖНО НАСТРОИТЬ cron job
+# 0 0 * * * /usr/bin/python /path/to/your/project/scripts/notify_users.py

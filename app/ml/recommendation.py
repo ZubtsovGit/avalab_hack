@@ -27,14 +27,15 @@ def get_recommendations(user: User, db: Session):
     logger.info("Рекомендации успешно сгенерированы для пользователя %s", user.username)
     return measures
 
-def extract_features(user: User):
-    features = [[
-        user.region,
-        user.industry,
-        user.company_size
-    ]]
-    features_encoded = encoder.transform(features)
-    return features_encoded
+def extract_features(user):
+    features = {
+        'region': user.region,
+        'industry': user.industry,
+        'company_size': user.company_size,
+        'okved': user.okved,
+        'employees_number': user.employees_number,
+    }
+    return pd.DataFrame([features])
 
 def get_measures_from_predictions(predictions, db: Session):
     measures = []

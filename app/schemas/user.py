@@ -9,8 +9,15 @@ class UserCreate(UserBase):
     region: str
     industry: str
     company_size: str
-    email: EmailStr = None
-    telegram_chat_id: str = None
+    email: Optional[EmailStr] = None
+    telegram_chat_id: Optional[str] = None
+    inn: Optional[str] = None
+    company_name: Optional[str] = None
+    okved: Optional[str] = None
+    employees_number: Optional[int] = None
+
+    class Config:
+        orm_mode = True
 
 class User(UserBase):
     id: int

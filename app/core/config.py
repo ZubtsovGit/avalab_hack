@@ -18,5 +18,13 @@ class Settings(BaseSettings):
 
         # Настройки Telegram
     TELEGRAM_BOT_TOKEN: str = os.getenv("TELEGRAM_BOT_TOKEN", "")
-    
+
+    # Добавьте новые настройки
+    GOSUSLUGI_CLIENT_ID = os.getenv("GOSUSLUGI_CLIENT_ID")
+    GOSUSLUGI_CLIENT_SECRET = os.getenv("GOSUSLUGI_CLIENT_SECRET")
+    GOSUSLUGI_AUTHORIZE_URL = "https://esia.gosuslugi.ru/aas/oauth2/ac"
+    GOSUSLUGI_ACCESS_TOKEN_URL = "https://esia.gosuslugi.ru/aas/oauth2/te"
+    GOSUSLUGI_API_BASE_URL = "https://esia.gosuslugi.ru/rs/"
+
+
 settings = Settings()
