@@ -28,7 +28,9 @@ def register_user(user_create: UserCreate, db: Session = Depends(get_db)):
         hashed_password=hashed_password,
         region=user_create.region,
         industry=user_create.industry,
-        company_size=user_create.company_size
+        company_size=user_create.company_size,
+        email=user_create.email,
+        telegram_chat_id=user_create.telegram_chat_id
     )
     db.add(db_user)
     db.commit()

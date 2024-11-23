@@ -16,3 +16,4 @@ requests
 torch
 onnx
 onnxruntime
+APScheduler

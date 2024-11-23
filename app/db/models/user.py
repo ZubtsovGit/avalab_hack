@@ -11,3 +11,5 @@ class User(Base):
     region = Column(String(100))
     industry = Column(String(100))
     company_size = Column(String(50))
+    email = Column(String(150), unique=True, index=True, nullable=True)
+    telegram_chat_id = Column(String(100), nullable=True)
