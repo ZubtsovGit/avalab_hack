@@ -12,7 +12,6 @@ mlflow
 prometheus-fastapi-instrumentator
 bs4
 requests
-torch
 onnx
 onnxruntime
 APScheduler

@@ -3,9 +3,6 @@ import mlflow
 import pandas as pd
 import pickle
 import os
-import torch
-from torch import nn
-from torch.utils.data import TensorDataset, DataLoader
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import OneHotEncoder
@@ -13,12 +10,12 @@ from sklearn.preprocessing import OneHotEncoder
 DATA_PATH = 'data/processed/training_data.csv'
 MODEL_DIR = 'app/ml/models'
 
-def optimize_model(model):
-    # Квантизация модели
-    model_q = torch.quantization.quantize_dynamic(
-        model, {nn.Linear}, dtype=torch.qint8
-    )
-    return model_q
+# def optimize_model(model):
+#     # Квантизация модели
+#     model_q = torch.quantization.quantize_dynamic(
+#         model, {nn.Linear}, dtype=torch.qint8
+#     )
+#     return model_q
 
 def train_recommendation_model():
     # Загрузка данных
