@@ -1,4 +1,5 @@
 import requests
+from app.core.config import settings
 
 FNS_API_URL = "https://api-fns.ru/api/egr"
 FNS_API_KEY = settings.FNS_API_KEY  # Добавьте API ключ в настройки
